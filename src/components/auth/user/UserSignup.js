@@ -1,9 +1,10 @@
 'use client'
-export default function UserLogin(){
+import Link from "next/link"
+export default function UserSignup(){
     return (
-    <section className="login-page">
-        <div className="login-main">
-            <div className="login-box">
+    <section className="signup-page">
+        <div className="signup-main">
+            <div className="signup-box">
                 <img src="/images/logo.svg"/>
                 <p>
                     Sign up to see photos and videos from your friends
@@ -27,12 +28,12 @@ export default function UserLogin(){
                 <span>By signing up, you agree to our <a href="">Terms, Privacy Policy</a> and <a href="">Cookies Policy.</a></span>
                 <button>Sign up</button>
             </div>
-            <div className="login-box2">
-                <span>Have an account? <a href="">Log in</a></span>
+            <div className="signup-box2">
+                <span>Have an account? <Link href="/login">Log in</Link></span>
             </div>
-            <div className="login-box3">
+            <div className="signup-box3">
                 <span>Get the app.</span>
-                <div className="login-box3-images">
+                <div className="signup-box3-images">
                     <img src="/images/link-google.png"/>
                     <img src="/images/link-microsoft.png"/>
                 </div>

@@ -1,0 +1,11 @@
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 150px;
+}
+.posts img{
+    width: 25%;
+}

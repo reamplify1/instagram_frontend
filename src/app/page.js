@@ -1,11 +1,13 @@
 
 import styles from './page.module.css'
-import Test from '../components/auth/user/login'
+import UserSignup from '../components/auth/user/UserSignup'
 export default function Home() {
   return (
     <main className={styles.main}>
-
-      <Test />
+    <div>
+      <UserSignup/>
+    </div>
+      
     </main>
   )
 }

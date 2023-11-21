@@ -1,99 +1,50 @@
 .login-page{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    /* height: 100vh;
+    width: 100%; */
     padding: 100px 0;
 }
 .login-main{
-    
+    /* height: 500px; */
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    gap: 30px;
+    /* max-height: 600px; */
+}
+.login-right{
+    display: flex;
     flex-direction: column;
     align-items: center;
-    /* padding: 50px 0; */
-    /* border: 1px solid#DBDBDB; */
+    justify-content: center;
+    gap: 10px;
+    /* height: 100%; */
     width: 350px;
-    
-}
-.login-main > div{
     /* padding: 50px 0; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
 }
-.login-box{
+.login-box1{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items:center;
-    margin-bottom: 12px;
-    padding: 50px 0;
-    border: 1px solid#DBDBDB;
-}
-.login-box p{
-    color: #737373;
-    font-weight: 600;
-    padding: 0 50px;
-}
-.fb-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 268px;
-    background-color: #0095F6;
-    height: 36px;
-    color: #fff;
-    border-radius: 12px;
-    border: transparent;
-    text-align: center;
-    font-size: 14px;
-    
-}
-.fb-button:hover{
-    opacity: 0.9;
-}
-.fb-button img {
-    margin-right: 10px;
-}
-
-.grey-line{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 75%;
-}
-.grey-line p ::before{
-    content: '';
-    width: 106px;
-    height: 1px;
-    color:#DBDBDB;
-}
-.grey-line p ::after{
-    content: '';
-    height: 1px;
-    width: 106px;
-    background-color:red;
-    /* background-color:#DBDBDB; */
-    position: absolute;
-
-}
-.grey-line p {
-    font-size: 13px;
-    padding: 0 15px;
-}
-.grey-line div{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 1px solid #DBDBDB;
     width: 100%;
-    height: 1px;
-    background-color:#DBDBDB
-}
-.login-box form{
+    max-width: 400px;
+    padding: 30px 0;
     /* gap: 10px; */
 }
-.login-box form input{
+.login-box1 img{
+    margin: 20px 0;
+}
+.login-box1 form{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    margin: 10px auto;
+}
+.login-box1 form input{
     width: 268px;
     height: 38px;
     padding: 0 10px;
@@ -104,105 +55,44 @@
     border: 1px solid #DBDBDB;
     font-size: 12px;
 }
-.login-box form input:focus{
+
+.login-box1 form input:focus{
     border: 2px solid #007bff;
     outline: none;
 }
-.login-box span{
-    color: #737373;
+.link-fb{
+    display: flex;
+    align-items: center;
+    gap:5px;
     font-size: 12px;
-    font-weight: 400;
-    padding: 0 40px;
-    margin-bottom: 20px;
+    font-weight: 600;
+    color: #385185;
 }
-.login-box span a{
-    text-decoration: none;
-    color: #00376B;
+.login-pass{
+    font-size: 12px;
+    font-weight: 500;
+    color: #385185;
 }
-.login-box button{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-
-    width: 268px;
-    background-color: #0095F6;
-    height: 36px;
-    color: #fff;
-    border-radius: 12px;
-    border: transparent;
-    text-align: center;
-    font-size: 14px;
-}
-.login-box button:hover{
-    opacity: 0.9;
-}
-
-
-/* 2nd div */
-
 .login-box2{
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-    padding: 30px 0;
-    /* border: 1px solid#DBDBDB; */
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     border: 1px solid#DBDBDB;
+    padding: 20px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    height: 65px;
 
 }
-.login-box2 span{
-    font-weight: 400;
-    font-size: 14px;
-}
-.login-box2 a{
-    text-decoration: none;
-    color: #0095F6;
-}
-/* third div */
 .login-box3{
-    border: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-}
-.login-box3 span {
-    margin: 20px;
-    font-size: 14px;
-    font-weight: 400;
+    gap: 10px;
 }
 .login-box3-images{
     display: flex;
-    gap: 10px
-}
-.login-box3-images image{
-    height: 40px;
-}
-.login-box3-images image:first-child{
-    width: 134px;
-}
-.login-box3-images image:last-child{
-    width: 110px;
-}
-
-.footer-inner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 11px;
-    font-weight: 400;
-    color: #737373;
-    gap: 10px;
-}
-.footer-inner p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.footer-inner p img{
-    width: 12px;
-    height: 12px;
-    margin-left: 4px
-}
-.footer{
-    margin-top: 60px;
 }
