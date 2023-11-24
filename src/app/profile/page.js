@@ -3,14 +3,47 @@ import UserLogin from "@/components/auth/user/UserLogin";
 import HeaderProfile from "@/components/HeaderProfile/HeaderProfile";
 import Footer from "@/components/footer/footer";
 import Posts from "@/components/posts/posts";
+import ModalAdd from "@/components/ModalAdd";
+import ModalAddSecond from "@/components/ModalAddSecond";
+import React, { useState } from 'react'
 export default function Login(){
 
-    const posts = [
+    const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
+    const closeModalAdd = () => {
+        setModalAddIsOpen(false)
+    }
+    const [modalAddSecondIsOpen, setModalAddSecondIsOpen] = useState(false);
+    const closeModalAddSecond = () => {
+        setModalAddSecondIsOpen(false)
+    }
+
+    const userPosts = [
+
         {
             url:  '/images/posts/6.png',
             description: '123123'
         },
-        
+        {
+            url:  '/images/posts/5.png',
+            description: '123123'
+        },
+        {
+            url:  '/images/posts/4.png',
+            description: '123123'
+        },
+        {
+            url:  '/images/posts/3.png',
+            description: '123123'
+        },
+        {
+            url:  '/images/posts/2.png',
+            description: '123123'
+        },
+        {
+            url:  '/images/posts/1.png',
+            description: '123123'
+        },
+    
     ]
 
     return (
@@ -35,9 +68,13 @@ export default function Login(){
                     <p>Terry Lucas</p>
                 </div>
             </div>
+            <button onClick={() => setModalAddIsOpen(true)}>New Post</button>
+            <button onClick={() => setModalAddSecondIsOpen(true)}>222</button>
         </div>
         <div>
-            <Posts url={posts}/>
+            <Posts userPosts={userPosts} description={userPosts}/>
+            {modalAddIsOpen && <ModalAdd close={closeModalAdd}/>}
+            {modalAddSecondIsOpen && <ModalAddSecond closeSecond={closeModalAddSecond}/>}
         </div>
         <Footer/>
     </div>

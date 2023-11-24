@@ -1,0 +1,9 @@
+.button-blue-bordered{
+    background-color: #0095F6;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 6px;
+    border: transparent;
+    text-align: center;
+    font-size: 14px;
+}
