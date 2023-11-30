@@ -1,11 +1,11 @@
 'use client'
-export default function Post(img){
+export default function Post({ imgSrc, onClick}){
 
-    let {imgSrc, imgNumber} = img
+    // let {imgSrc, imgNumber} = img
 
     return(
-        // <div>
-                <img src={imgSrc} alt=""/>
+        // <div onClick={onClick}>
+                <img src={imgSrc} onClick={onClick} alt=""/>
 
         // </div>
     )
