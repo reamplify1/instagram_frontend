@@ -16,6 +16,12 @@ export default function ModalDetail({ close, selectedPost, userInfo }) {
       }
     };
 
+    const removeComment = (index) => {
+      const updatedComments = [...comments];
+      updatedComments.splice(index, 1);
+      setComments(updatedComments);
+    };
+
   return (
     <div>
       <div className="modal-detail">
@@ -33,6 +39,7 @@ export default function ModalDetail({ close, selectedPost, userInfo }) {
                     {comments.map((comment, index) => (
                         <div key={index}>
                         <p>{comment.user}:</p> {comment.text}
+                        <button onClick={() => removeComment(index)}>Удалить</button>
                         </div>
                         ))}
                     </div>

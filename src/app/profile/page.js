@@ -57,15 +57,64 @@ export default function Profile(){
         },
     
     ]
+    let followersInfo = [
+        {
+            login: 'edenhazard10',
+            name: 'Eden Hazard',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'selenagomez',
+            name: 'Selena',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'trueunder',
+            name: 'Vova Adidas',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'piwerasd',
+            name: 'Ho Hey',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'trueunder',
+            name: 'Vova Adidas',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'useruseruser',
+            name: 'User Userovich',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'trueunder',
+            name: 'Vova Adidas',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'trueunder',
+            name: 'Vova Adidas',
+            profilePic: '/images/followers.jpg',
+        },
+        {
+            login: 'trueunder',
+            name: 'Vova Adidas',
+            profilePic: '/images/followers.jpg',
+        },
+    ]
+    
 
     return (
     <div>
-        <HeaderProfile />
+        <HeaderProfile followersInfo={followersInfo}/>
+
 
         <div>
-            <UserProfile  userInfo={userInfo} userPosts={userPosts}/>
-            <Posts userPosts={userPosts}/>
-     
+            <UserProfile  userInfo={userInfo} userPosts={userPosts} followersInfo={followersInfo}/>
+            {/* <Posts userPosts={userPosts}/> */}
+
         </div>
         <Footer/>
     </div>

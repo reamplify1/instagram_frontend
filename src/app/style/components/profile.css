@@ -71,8 +71,13 @@
     font-size: 14px;
     font-weight: 600;
     gap: 5px;
+    /* cursor: pointer; */
 }
 .bio2 p{
     font-size: 12px;
     font-weight: 400;
+}
+
+.bio2 span:nth-child(2){
+    cursor: pointer;
 }

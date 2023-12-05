@@ -111,11 +111,13 @@
     z-index: 2;
 }
 .modal-detail-inner-left{
+    height: 100%;
     width: 65%;
 }
 .modal-detail-inner-left img {
     height: 100%;
-    width: 100%;
+    width: auto;
+    max-width: 700px;
     object-fit: cover;
 }
 
@@ -123,4 +125,140 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* Modal Followers */
+.modal-followers{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+}
+.modal-followers-backdrop{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1;
+}
+.modal-follower-inner{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 50vh;
+    width: 50vw;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    z-index: 2;
+}
+.followers-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 50px;
+
+    width: 100%;
+    z-index: 2;
+    padding: 0 20px;
+}
+.followers-close-button {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .followers-close-button span {
+    display: inline-block;
+    font-size: 18px;
+    color: #000; /* Цвет по вашему выбору */
+    cursor: pointer;
+  }
+
+.followers-hidden{
+    opacity: 0;
+}
+.followers-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid #8a8a8a;
+    max-height: 500px; /* Заменим height на max-height */
+    overflow-y: auto; /* Добавим свойство overflow-y для скролла */
+    overflow-x: hidden;
+}
+.followers-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 10px;
+}
+
+
+.followers-item-wrapper{
+    width: 100%;
+}
+
+.followers-left{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    height: 60px;
+    gap: 20px
+}
+.followers-list-inner2{
+    display: flex;
+    flex-direction: column;
+
+}
+.followers-list-inner2 p{
+    color:  #007bff
+
+}
+.followers-list-inner2 div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    gap: 7px;
+    height: 30px;
+    /* background-color: red; */
+    padding: 0;
+}
+/* .followers-list-inner2 div:nth-child(1){
+    height: 50px;
+} */
+.followers-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+.followers-list-inner2 span{
+    font-size: 14px;
+    font-weight: 200;
+    color: #727272;
+    
+}
+.followers-button{
+    margin: 0 20px;
+
+}
+.followers-button button{
+    padding: 7px 10px;
+    border: none;
+    border-radius: 7px;
+    color: #000;
+    font-weight: 600;
 }

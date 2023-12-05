@@ -2,14 +2,18 @@ import Posts from "../posts/posts"
 import ModalAdd from "../ModalAdd"
 import ModalDetail from "../ModalDetail";
 import { useState } from "react"
-
-export function UserProfile({userPosts, userInfo}){
+import ModalFollowers from "../ModalFollowers";
+export function UserProfile({userPosts, userInfo, followersInfo}){
 
     const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
     const closeModalAdd = () => {
         setModalAddIsOpen(false)
 
     }
+    const openModalAdd = () => {
+        setModalAddIsOpen(true);
+      };
+    
 // post modal window
     const [modalDetailIsOpen, setModalDetailIsOpen] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
@@ -30,9 +34,19 @@ export function UserProfile({userPosts, userInfo}){
         // console.log(post);
         setCurrentPost(post)
     }
-
-
-
+    //modal followers
+    //состояние для отслеживания открытия и закрытия
+    const [modalFollowersIsOpen, setModalFollowersIsOpen] = useState(false);
+    //функцию для открытия
+    const openModalFollowers = () => {
+        setModalFollowersIsOpen(true);
+      };
+    //затем onClick и  условие для отображения модалки
+    //закрытие
+      const closeModalFollowers = () => {
+        setModalFollowersIsOpen(false);
+        };
+    
     return(
         <div>
             <div className="profileInfo">
@@ -47,7 +61,9 @@ export function UserProfile({userPosts, userInfo}){
                     </div>
                     <div className="bio2">
                         <span>{userInfo.stats.posts} <p> posts</p></span>
-                        <span>{userInfo.stats.followers}<p> followers</p></span>
+                        <span onClick={openModalFollowers}>{userInfo.stats.followers}<p> followers</p></span>
+                        {modalFollowersIsOpen && 
+                        <ModalFollowers close={closeModalFollowers} followersInfo={followersInfo}/>}
                         <span>{userInfo.stats.following} <p> following</p></span>
                     </div>
                     <div className="bio3">
