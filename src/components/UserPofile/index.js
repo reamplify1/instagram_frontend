@@ -3,16 +3,17 @@ import ModalAdd from "../ModalAdd"
 import ModalDetail from "../ModalDetail";
 import { useState } from "react"
 import ModalFollowers from "../ModalFollowers";
-export function UserProfile({userPosts, userInfo, followersInfo}){
+export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow, modalAddIsOpen}){
 
-    const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
+ 
     const closeModalAdd = () => {
-        setModalAddIsOpen(false)
+        // setModalAddIsOpen(false)
+        closeAddWindow()
 
     }
-    const openModalAdd = () => {
-        setModalAddIsOpen(true);
-      };
+    // const openModalAdd = () => {
+    //     setModalAddIsOpen(true);
+    //   };
     
 // post modal window
     const [modalDetailIsOpen, setModalDetailIsOpen] = useState(false);
@@ -70,7 +71,7 @@ export function UserProfile({userPosts, userInfo, followersInfo}){
                         <p>{userInfo.bio}</p>
                     </div>
                 </div>
-                <button onClick={() => setModalAddIsOpen(true)}>New Post</button>
+                {/* <button onClick={() => setModalAddIsOpen(true)}>New Post</button> */}
             </div>
             {modalAddIsOpen && <ModalAdd close={closeModalAdd}/>}   
 

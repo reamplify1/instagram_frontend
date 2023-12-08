@@ -57,6 +57,7 @@ export default function Profile(){
         },
     
     ]
+
     let followersInfo = [
         {
             login: 'edenhazard10',
@@ -104,15 +105,21 @@ export default function Profile(){
             profilePic: '/images/followers.jpg',
         },
     ]
-    
+
+    const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
 
     return (
     <div>
-        <HeaderProfile followersInfo={followersInfo}/>
+        <HeaderProfile openAddWindow={() => setModalAddIsOpen(true)}/>
 
 
         <div>
-            <UserProfile  userInfo={userInfo} userPosts={userPosts} followersInfo={followersInfo}/>
+            <UserProfile  userInfo={userInfo} 
+            userPosts={userPosts} 
+            followersInfo={followersInfo}
+            closeAddWindow={() => setModalAddIsOpen(false)}
+            modalAddIsOpen={modalAddIsOpen}
+            />
             {/* <Posts userPosts={userPosts}/> */}
 
         </div>

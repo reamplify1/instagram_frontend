@@ -88,3 +88,45 @@
 .home-suggestions h4 {
     color: rgb(172, 172, 172);
 }
+
+.suggestions-wrapper{
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+.suggestions-wrapper img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.suggestions-wrapper span{
+    color: #007bff;
+    font-size: 13px;
+}
+.suggestions-users{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: start; */
+    margin: 0 10px;
+    /* align-items: flex-start; */
+    height: auto;
+}
+.suggestions-users span{
+    color: #8a8a8a;
+    font-size: 12px;
+}
+.suggestions-users p{
+    display: flex;
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    align-items: flex-start;
+    margin: 5px 10px;
+    width: 100%;
+}

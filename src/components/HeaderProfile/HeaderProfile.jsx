@@ -1,22 +1,8 @@
 'use client'
 import { useState } from "react"
 
-export default function HeaderProfile(){
-    const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
+export default function HeaderProfile({openAddWindow}){
 
-    const closeModalAdd = () => {
-      setModalAddIsOpen(false);
-    };
-    const openModalAdd = () => {
-        setModalAddIsOpen(true);
-
-    };
-
-    const handleNewPostClick = () => {
-        console.log("work");
-        openModalAdd();
-        
-    };
 
 
 
@@ -35,7 +21,7 @@ export default function HeaderProfile(){
         <div className="header-profile-navigation">
             <img src="/images/navigation/nav1.png"/>
             <img src="/images/navigation/nav2.png"/>
-            <img src="/images/navigation/nav3.png" onClick={openModalAdd}/>
+            <img src="/images/navigation/nav3.png" onClick={openAddWindow}/>
             <img src="/images/navigation/nav4.png"/>
             <img src="/images/navigation/nav5.png"/>
             <img src="/images/navigation/nav6.png"/>
