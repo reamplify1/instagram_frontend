@@ -1,8 +1,17 @@
 'use client'
 import Link from "next/link"
+import { useSelector, useDispatch } from 'react-redux'
+import { authorize } from "@/app/store/slices/authSlice"
+
 export default function UserLogin(){
+    const dispatch = useDispatch()
+    const isAuth = useSelector((state) => state.auth.isAuth)
+
+
     return (
     <section className="login-page">
+        
+        {isAuth ? 'True' : 'False'}
         <section className="login-main">
             <div className="login-left">
                 <img src="/images/screenshot.png"/>
@@ -18,7 +27,10 @@ export default function UserLogin(){
                         <input placeholder="Phone number, username, or email"/>
                         <input placeholder="Password"/>
                     </form>
-                    <button className="fb-button">
+                    <button 
+                        type="button"
+                        className="fb-button"
+                        onClick={() => dispatch(authorize())}>
                             Log in
                         </button>
                     

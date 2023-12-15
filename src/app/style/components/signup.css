@@ -97,7 +97,7 @@
     width: 268px;
     height: 38px;
     padding: 0 10px;
-    color: #DBDBDB;
+    color: #3b3b3b;
     background-color: #FAFAFA;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -107,6 +107,9 @@
 .signup-box form input:focus{
     border: 2px solid #007bff;
     outline: none;
+}
+form span{
+
 }
 .signup-box span{
     color: #737373;

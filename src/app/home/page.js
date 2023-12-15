@@ -67,28 +67,6 @@ export default function Home () {
         },
     ]
 
-    let stories = [
-        {
-            login: 'edenhazard10',
-            storiesUser: 
-            {
-                story: '/images/user-story.jpg',
-                // story: '/images/followers.jpg',
-                // story: '/images/followers.jpg',
-
-            }
-        },
-        {
-            login: 'selenagomez',
-            storiesUser: 
-            {
-                story: '/images/user-story.jpg',
-
-
-            }
-        }
-
-    ]
     // modal stories: состояние, открытие, закрытие. Вешаем онклик на див, подключаем компонент в ModalStories добавляем обработку вне модалки для закрытия
     
     const [selectedUser, setSelectedUser] = useState(null);
@@ -110,7 +88,7 @@ export default function Home () {
                 <div className="home-left">
                     <div className="home-stories">
                         {followersInfo.map((follower, index) => (
-                        <div key={index} className="story-item" onClick={storyClick}>
+                        <div key={index} className="story-item" onClick={() => storyClick(follower)}>
                             <img src={follower.profilePic} alt={follower.name} />
                             <p>{follower.name}</p>
                         </div>
@@ -122,31 +100,7 @@ export default function Home () {
                             </div>
                            
                         </div>
-                    
-                        {/* <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div>
-                        <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div>
-                        <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div>
-                        <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div>
-                        <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div>
-                        <div className="story-item">
-                            <img src="/images/followers.jpg"/>
-                            <span>lauramatt</span>
-                        </div> */}
+
                     </div>
                     <div className="home-post">
                         <div className="home-post-user">
