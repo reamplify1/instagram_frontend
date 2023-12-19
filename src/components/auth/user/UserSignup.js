@@ -1,12 +1,19 @@
 'use client'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios";
 import Link from "next/link"
+import { useRouter } from 'next/navigation'
+import { createUser } from "@/app/store/slices/authSlice";
+
+import { useSelector, useDispatch } from "react-redux";
+import { authorize } from "@/app/store/slices/authSlice";
 
 export default function UserSignup(){
+    const isAuth = useSelector((state) => state.auth.value)
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
-        emailOrMobile: '',
-        fullName: '',
+        email: '',
+        full_name: '',
         username: '',
         password: '',
       });
@@ -19,21 +26,27 @@ export default function UserSignup(){
         }));
       };
     
-      const formSubmit = (e) => {
-        e.preventDefault();
+      const formSubmit = () => {
+        createUser(formData)
         //запрос на сервер
         console.log('Form data submitted:', formData);
-        axios.post('http://195.49.210.193:3000', formData)
-        .then((response) => {
-          // обработка успешного ответа
-          console.log('Server response:', response.data);
-        })
-        .catch((error) => {
-          // Обработка ошибки при отправке данных
-          console.error('Error submitting form:', error);
-        });
+        //2 способ без authSlice
+        // axios.post('http://195.49.210.193:3001/api/auth/signup', formData)
+        // .then((response) => {
+        //   // обработка успешного ответа
+        //   console.log('Server response:', response.data);
+        // })
+        // .catch((error) => {
+        //   // Обработка ошибки при отправке данных
+        //   console.error('Error submitting form:', error);
+        // });
       };
 
+      
+
+      useEffect(() => {
+        if(isAuth) router.push('/login')
+    }, [isAuth])
     return (
     <section className="signup-page">
         <div className="signup-main">
@@ -51,16 +64,16 @@ export default function UserSignup(){
                     <p>OR</p>
                     <div></div>
                 </div>
-                <form onSubmit={formSubmit}>
+                <form>
                     <input placeholder="Mobile Number or Email"
-                        name="emailOrMobile"
+                        name="email"
                         type="text"
-                        value={formData.emailOrMobile}
+                        value={formData.email}
                         onChange={formChange}/>
                     <input placeholder="Full Name"
-                        name="fullName"
+                        name="full_name"
                         type="text"
-                        value={formData.fullName}
+                        value={formData.full_name}
                         onChange={formChange}/>
                     <input placeholder="Username"
                         name="username"
@@ -73,9 +86,11 @@ export default function UserSignup(){
                         value={formData.password}
                         onChange={formChange}/>
                
-                    <span>People who use our service may have uploaded your contact information to Instagram. <a href="">Learn more</a></span>
-                    <span>By signing up, you agree to our <a href="">Terms, Privacy Policy</a> and <a href="">Cookies Policy.</a></span>
-                    <button type="submit">Sign up</button>
+                    <div>
+                        <span>People who use our service may have uploaded your contact information to Instagram. <a href="">Learn more</a></span>
+                        <span>By signing up, you agree to our <a href="">Terms, Privacy Policy</a> and <a href="">Cookies Policy.</a></span>
+                    </div>
+                    <button onClick={formSubmit}>Sign up</button>
                 </form>
             </div>
             <div className="signup-box2">

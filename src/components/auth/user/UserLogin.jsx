@@ -6,7 +6,10 @@ import { authorize } from "@/app/store/slices/authSlice"
 export default function UserLogin(){
     const dispatch = useDispatch()
     const isAuth = useSelector((state) => state.auth.isAuth)
-
+    const [email, setEmail] = useState('')
+    const [full_name, setFull_name] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     return (
     <section className="login-page">

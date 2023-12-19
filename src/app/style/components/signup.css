@@ -91,7 +91,12 @@
     background-color:#DBDBDB
 }
 .signup-box form{
-    /* gap: 10px; */
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+.signup-box form div{
+    
 }
 .signup-box form input{
     width: 268px;
