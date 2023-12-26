@@ -1,4 +1,5 @@
 'use client'
+import { END_POINT } from "@/app/config/EndPoint"
 export default function Post({ imgSrc, onClick}){
 
     // let {imgSrc, imgNumber} = img
@@ -6,6 +7,7 @@ export default function Post({ imgSrc, onClick}){
     return(
         // <div onClick={onClick}>
                 <img src={imgSrc} onClick={onClick} alt=""/>
+                // <img src={`${END_POINT}`} onClick={onClick} alt=""/>
 
         // </div>
     )

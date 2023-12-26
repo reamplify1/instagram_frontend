@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { jwtDecode } from 'jwt-decode'
+import { END_POINT } from '@/app/config/EndPoint'
+
+const token = localStorage.getItem("token")
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -10,7 +13,7 @@ export const authSlice = createSlice({
     tokenExt: 0 
   },
   reducers: {
-    authorize: (state) => {
+    authorize: (state, action) => {
       const decoded = jwtDecode(action.payload.token)
       state.currentUser = {
           id:decoded.id,
@@ -32,7 +35,7 @@ export const authSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { authorize, logOut } = authSlice.actions
 
-export const createUser = ( user ) => {
+export const createUser = ( user ) => (dispatch) => {
   axios.post('http://195.49.210.193:3001/api/auth/signup', user)
   .then((response) => {
     // обработка успешного ответа
@@ -45,7 +48,7 @@ export const createUser = ( user ) => {
 }
 
 export const Login = (email, password) => (dispatch) => {
-  axios.post(`${END_POINT}/api/auth/login`, {
+  axios.post(`${END_POINT}/api/auth/signin`, {
       email, 
       password
   }).then(res => {

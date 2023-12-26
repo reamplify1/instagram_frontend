@@ -2,14 +2,35 @@
 import Link from "next/link"
 import { useSelector, useDispatch } from 'react-redux'
 import { authorize } from "@/app/store/slices/authSlice"
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { Login } from "@/app/store/slices/authSlice"
+
 
 export default function UserLogin(){
     const dispatch = useDispatch()
+    const router = useRouter()
     const isAuth = useSelector((state) => state.auth.isAuth)
     const [email, setEmail] = useState('')
-    const [full_name, setFull_name] = useState('')
-    const [username, setUsername] = useState('')
+    // const [full_name, setFull_name] = useState('')
+    // const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    const entry = () => {
+        if(email.length > 0 && password.length > 0){
+            dispatch(Login(email,password))
+        }else{
+            console.log('All fields must be filled');
+        }
+    }
+
+    useEffect(() => {
+        if(isAuth){
+            router.push("/profile")
+        }
+    },[isAuth])
+
+
 
     return (
     <section className="login-page">
@@ -27,15 +48,16 @@ export default function UserLogin(){
                     <img src="/images/logo.svg"/>
                    
                     <form>
-                        <input placeholder="Phone number, username, or email"/>
-                        <input placeholder="Password"/>
-                    </form>
-                    <button 
+                        <input placeholder="Phone number, username, or email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <button 
                         type="button"
                         className="fb-button"
-                        onClick={() => dispatch(authorize())}>
+                        onClick={() => entry()}>
                             Log in
                         </button>
+                    </form>
+
                     
                     <div className="grey-line">
                         <div></div>

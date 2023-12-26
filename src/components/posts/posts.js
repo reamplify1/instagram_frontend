@@ -1,7 +1,7 @@
 'use client'
 import Post from "./post/post"
 
-export default function Posts({userPosts, openModalDetail}){
+export default function Posts({userPosts, openModalDetail} ){
     
     // let allPosts = userPosts.map(post => <Post imgSrc={post.url} imgNumber={post.description}/>)
     

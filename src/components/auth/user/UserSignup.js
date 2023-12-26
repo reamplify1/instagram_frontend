@@ -9,8 +9,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { authorize } from "@/app/store/slices/authSlice";
 
 export default function UserSignup(){
-    const isAuth = useSelector((state) => state.auth.value)
-    const dispatch = useDispatch()
+    const isAuth = useSelector((state) => state.auth.value) // достать из redux
+    const router = useRouter()
+    const dispatch = useDispatch() // изменить из redux
     const [formData, setFormData] = useState({
         email: '',
         full_name: '',
@@ -27,25 +28,16 @@ export default function UserSignup(){
       };
     
       const formSubmit = () => {
-        createUser(formData)
-        //запрос на сервер
+        dispatch(createUser(formData))
+        router.push('/profile')
         console.log('Form data submitted:', formData);
-        //2 способ без authSlice
-        // axios.post('http://195.49.210.193:3001/api/auth/signup', formData)
-        // .then((response) => {
-        //   // обработка успешного ответа
-        //   console.log('Server response:', response.data);
-        // })
-        // .catch((error) => {
-        //   // Обработка ошибки при отправке данных
-        //   console.error('Error submitting form:', error);
-        // });
+
       };
 
       
 
       useEffect(() => {
-        if(isAuth) router.push('/login')
+        if(isAuth) router.push('/profile')
     }, [isAuth])
     return (
     <section className="signup-page">
@@ -90,7 +82,7 @@ export default function UserSignup(){
                         <span>People who use our service may have uploaded your contact information to Instagram. <a href="">Learn more</a></span>
                         <span>By signing up, you agree to our <a href="">Terms, Privacy Policy</a> and <a href="">Cookies Policy.</a></span>
                     </div>
-                    <button onClick={formSubmit}>Sign up</button>
+                    <button type="button" onClick={formSubmit}>Sign up</button>
                 </form>
             </div>
             <div className="signup-box2">

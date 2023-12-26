@@ -1,9 +1,24 @@
 import Posts from "../posts/posts"
 import ModalAdd from "../ModalAdd"
 import ModalDetail from "../ModalDetail";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import ModalFollowers from "../ModalFollowers";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addMyPosts } from "@/app/store/slices/postSlice";
+import { getMyPosts } from "@/app/store/slices/postSlice";
+import { createPost } from "@/app/store/slices/postSlice";
+
 export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow, modalAddIsOpen}){
+
+    const dispatch = useDispatch()
+    // const posts = useSelector((state) => state.post.posts)
+    const didMount = () =>{
+        dispatch(getMyPosts())
+    }
+    
+    useEffect(didMount,[])
+
 
  
     const closeModalAdd = () => {

@@ -1,11 +1,25 @@
 'use client'
-import { useState } from "react"
-
+import { useState, useEffect } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons"
+import { useRouter } from "next/navigation"
+import { useDispatch, useSelector } from "react-redux"
+import { logOut } from "@/app/store/slices/authSlice"
 export default function HeaderProfile({openAddWindow}){
+    const [step,setStep] = useState(0)
+    const router = useRouter()
+    const dispatch = useDispatch()
+    const toggleModal = () => {
+        setStep((condition) => (condition === 1 ? 0 : 1));
+      };
+    const isAuth = useSelector((state) => state.auth.isAuth)
 
 
-
-
+    useEffect(() => {
+        if(!isAuth){
+            router.push('/login')
+        }
+    },[isAuth])
     return (
     <div className="header-profile-container">
         <div className="header-profile-logo">
@@ -25,6 +39,20 @@ export default function HeaderProfile({openAddWindow}){
             <img src="/images/navigation/nav4.png"/>
             <img src="/images/navigation/nav5.png"/>
             <img src="/images/navigation/nav6.png"/>
+            
+            <div className="logout" onClick={toggleModal}>
+                            
+                            <div className="logout" >
+                                <FontAwesomeIcon onClick={() => 
+                                dispatch(logOut())} icon={faRightFromBracket} />
+                            </div>
+                            {/* {step == 1 && <div className="logout" onClick={() => 
+                                dispatch(logOut())}>
+                                
+                                
+                            </div>} */}
+            </div>
+
         </div>
     </div>
     )

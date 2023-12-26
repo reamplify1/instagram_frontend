@@ -6,6 +6,9 @@ import Posts from "@/components/posts/posts";
 
 import React, { useState } from 'react'
 import { UserProfile } from "@/components/UserPofile";
+
+
+
 export default function Profile(){
 
 
