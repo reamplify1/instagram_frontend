@@ -12,7 +12,7 @@ import { createPost } from "@/app/store/slices/postSlice";
 export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow, modalAddIsOpen}){
 
     const dispatch = useDispatch()
-    // const posts = useSelector((state) => state.post.posts)
+    const posts = useSelector((state) => state.post.posts)
     const didMount = () =>{
         dispatch(getMyPosts())
     }
@@ -26,9 +26,9 @@ export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow,
         closeAddWindow()
 
     }
-    // const openModalAdd = () => {
-    //     setModalAddIsOpen(true);
-    //   };
+    const openModalAdd = () => {
+        setModalAddIsOpen(true);
+      };
     
 // post modal window
     const [modalDetailIsOpen, setModalDetailIsOpen] = useState(false);
@@ -36,7 +36,7 @@ export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow,
 
     const closeModalDetail = () => {
         setModalDetailIsOpen(false);
-        setSelectedPost(null); // сбрасываем
+        // setSelectedPost(null); // сбрасываем
       };
     
       const openModalDetail = (post) => {
@@ -62,7 +62,7 @@ export function UserProfile({userPosts, userInfo, followersInfo, closeAddWindow,
       const closeModalFollowers = () => {
         setModalFollowersIsOpen(false);
         };
-    
+    // console.log(userPosts);
     return(
         <div>
             <div className="profileInfo">

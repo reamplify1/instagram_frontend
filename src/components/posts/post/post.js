@@ -6,8 +6,8 @@ export default function Post({ imgSrc, onClick}){
 
     return(
         // <div onClick={onClick}>
-                <img src={imgSrc} onClick={onClick} alt=""/>
-                // <img src={`${END_POINT}`} onClick={onClick} alt=""/>
+                // <img src={imgSrc} onClick={onClick} alt=""/>
+                <img src={`${END_POINT}${imgSrc}`} onClick={onClick} alt=""/>
 
         // </div>
     )

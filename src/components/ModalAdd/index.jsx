@@ -1,11 +1,14 @@
 
 import React, { useState, } from 'react';
+import { useDispatch } from 'react-redux';
+import { createPost } from '@/app/store/slices/postSlice';
 
 export default function ModalAdd({close}){
     // console.log('close in ModalAdd:', close);
     const [step, setStep] = useState(1);;
     const [caption, setCaption] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
+    const dispatch = useDispatch()
     const handleFileChange = (event) => {
         // Обработка выбранных файлов
         const file = event.target.files[0];
@@ -28,6 +31,16 @@ export default function ModalAdd({close}){
       const captionLength = () => {
         return caption.length;
       };
+    
+    
+    const upload = () => {
+        const formDataToSend = new FormData();
+        formDataToSend.append('image', selectedFile);
+        formDataToSend.append('description', caption);
+        dispatch(createPost(formDataToSend))
+        close(false)
+        console.log("upload", selectedFile, caption);
+    } 
 
     return(
         <div>
@@ -65,7 +78,7 @@ export default function ModalAdd({close}){
                             </button>
 
                             <h4>Create new post</h4>
-                            <button onClick={() => {close(false)}} className='button-share'>
+                            <button onClick={() => {upload()}} className='button-share'>
                                 Share
                             </button>
                         </div>

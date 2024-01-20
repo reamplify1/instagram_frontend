@@ -2,15 +2,22 @@
 
 import HeaderProfile from "@/components/HeaderProfile/HeaderProfile";
 import Footer from "@/components/footer/footer";
-import Posts from "@/components/posts/posts";
+// import Posts from "@/components/posts/posts";
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserProfile } from "@/components/UserPofile";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { getMyPosts } from "../store/slices/postSlice";
 
 export default function Profile(){
-
+    const dispatch = useDispatch()
+    
+  
+    useEffect(() => {
+        dispatch(getMyPosts())
+    }, [])
+    
+    const posts = useSelector((state) => state.post.posts)
 
     let userInfo = 
         {
@@ -26,40 +33,40 @@ export default function Profile(){
         }
     
 
-    const userPosts = [
+    // const userPosts = [
 
-        {
-            url:  '/images/posts/6.png',
-            description: '123123',
-            id: '1',
-        },
-        {
-            url:  '/images/posts/5.png',
-            description: '123123',
-            id: '2',
-        },
-        {
-            url:  '/images/posts/4.png',
-            description: '123123',
-            id: '3',
-        },
-        {
-            url:  '/images/posts/3.png',
-            description: '123123',
-            id: '4',
-        },
-        {
-            url:  '/images/posts/2.png',
-            description: '123123',
-            id: '5',
-        },
-        {
-            url:  '/images/posts/1.png',
-            description: '123123',
-            id: '6',
-        },
+    //     {
+    //         url:  '/images/posts/6.png',
+    //         description: '123123',
+    //         id: '1',
+    //     },
+    //     {
+    //         url:  '/images/posts/5.png',
+    //         description: '123123',
+    //         id: '2',
+    //     },
+    //     {
+    //         url:  '/images/posts/4.png',
+    //         description: '123123',
+    //         id: '3',
+    //     },
+    //     {
+    //         url:  '/images/posts/3.png',
+    //         description: '123123',
+    //         id: '4',
+    //     },
+    //     {
+    //         url:  '/images/posts/2.png',
+    //         description: '123123',
+    //         id: '5',
+    //     },
+    //     {
+    //         url:  '/images/posts/1.png',
+    //         description: '123123',
+    //         id: '6',
+    //     },
     
-    ]
+    // ]
 
     let followersInfo = [
         {
@@ -110,7 +117,7 @@ export default function Profile(){
     ]
 
     const [modalAddIsOpen, setModalAddIsOpen] = useState(false);
-
+    console.log("test posts: ", posts);
     return (
     <div>
         <HeaderProfile openAddWindow={() => setModalAddIsOpen(true)}/>
@@ -118,7 +125,7 @@ export default function Profile(){
 
         <div>
             <UserProfile  userInfo={userInfo} 
-            userPosts={userPosts} 
+            userPosts={posts} 
             followersInfo={followersInfo}
             closeAddWindow={() => setModalAddIsOpen(false)}
             modalAddIsOpen={modalAddIsOpen}
